@@ -1,7 +1,15 @@
 
 // These are something you don't have to worry about, just make sure they are there.
 const express = require('express');
+const sqlite3 = require('sqlite3').verbose();
+const sqlite = require("sqlite");
+const multer = require("multer");
 const app = express();
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(multer().none())
+
 
 // This is an example of an "end point" for the backend we are building.
 // '/' means that just going to "localhost:5000" will output this endpoint.
@@ -32,21 +40,23 @@ app.get('/', (req, res) => {
 //---------------------------------------------
 
 
-
 // This is another example of an "end point".
 // You can connect to this end point by going to "localhost:5000/person/ANY_NAME"
 // For example I can do "localhost:5000/person/sam" or "localhost:5000/person/ben".
 // The :name inside the get method is saying that :name is a parameter and can be access from the
 // request parameter like I did on line 45.
 //---------------------------------------------
-app.get('/person/:name', (req, res) => {
-    let personName = req.params.name;
-    res.send("This person's name is " + personName);
-    res.end();
+app.get('/person/:name', async (req, res) => {
+    let query = "SELECT * FROM Person WHERE userName = ?";
+    let output = await queryDB(query, req.params.name);
+    res.send(output);
 });
 //---------------------------------------------
 
-
+app.get('/thing/:name', (req, res) => {
+    let name = req.params.name;
+    res.send(name);
+})
 
 // This is another example of an "end point".
 // You can connect to this end point by going to "localhost:5000/error"
@@ -58,6 +68,23 @@ app.get('/error', (req, res) => {
 });
 //---------------------------------------------
 
+// Function to query database with proper async and await
+async function queryDB (query, placeholder) {
+    let db = await getConn();
+    let content = await db.all(query, placeholder);
+    await db.close();
+    return content;
+}
+
+// Function to establish a connection to a database
+async function getConn() {
+    const db = await sqlite.open({
+        filename: "user.db",
+        driver: sqlite3.Database
+    });
+
+    return db;
+}
 
 
 // Set up the port number to process.evnv.Port or to 5000 (since we didn't give it process.env.PORT, it defaults to 5000).
