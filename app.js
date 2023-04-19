@@ -3,8 +3,6 @@
 const express = require('express');
 const app = express();
 
-
-
 // This is an example of an "end point" for the backend we are building.
 // '/' means that just going to "localhost:5000" will output this endpoint.
 // (req, res) is a shorthand (request, response), technically the two arguments can be anything like (a, b) but
@@ -64,7 +62,7 @@ app.get('/error', (req, res) => {
 
 // Set up the port number to process.evnv.Port or to 5000 (since we didn't give it process.env.PORT, it defaults to 5000).
 // For more information, https://stackoverflow.com/questions/1946193/whats-the-whole-point-of-localhost-hosts-and-ports-at-all
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 // This part actually starts the "server" (only accessible on your computer for now!)
 // and tells you which port to listen, in most cases, port 5000.
