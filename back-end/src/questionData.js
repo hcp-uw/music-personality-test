@@ -1,3 +1,5 @@
+//temp hard coded data
+
 const data = [
     {
         id: 1,
