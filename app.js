@@ -33,8 +33,11 @@ app.use(multer().none())
 // Res End: It means we are done with this end point. We shouldn't interact with the website after writing this.
 //---------------------------------------------
 app.get('/', (req, res) => {
+    resp = {
+        "message": "Sam has set up this end point, HELLOOO",
+    }
     res.status(200);
-    res.send("Sam has set up this end point");
+    res.send(resp)
     res.end();
 });
 //---------------------------------------------

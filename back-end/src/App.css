@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  padding: 10px;
+  height: 50px;
+  align-items: center;
+  box-shadow: 0px 5px 7.5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  background-color: white;
+}
+
+.nav--logo {
+  height: 40px;
+  margin-right: 0px;
+}
+
+.nav--logotext {
+  width: 300px;
+  display: block;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.front--main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.front--main > a {
+  text-decoration: none;
+}
+
+.page--button {
+  border-radius: 30px;
+  border-color: transparent;
+  background-color: #9917FF;
+  color : white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.page--button:hover  {
+  background-color: #7210bd;
+  cursor: pointer;
+}
+
+.question {
+  width: 65%;
+  min-width: 490px;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  height: 175px;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.questions--div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.questions--div > button {
+  margin: 40px 0;
+}
+
+.question--buttons {
+  margin-top: -20px;
+  display: flex;
+  align-items: center;
+}
+
+.question--buttons > button {
+  margin: 15px;
+  border-color: black;
+  background-color: white;
+  transition: .5s ease;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.question--buttons > button:hover {
+  background-color: black;
+}
+
+
+.question--buttons > h3 {
+  margin: 5px;
+}
+
+.q--neutral {
+  width:25px;
+  height: 25px;
+  min-width: 25px;
+  min-height: 25px;
+}
+
+.q--slight {
+  width:30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.q--strong {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+}
