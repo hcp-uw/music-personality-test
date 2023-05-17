@@ -3,7 +3,6 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const sqlite = require("sqlite");
-const multer = require("multer");
 const app = express();
 
 app.use(express.urlencoded({extended: true}));
@@ -58,6 +57,10 @@ app.get('/thing/:name', (req, res) => {
     res.send(name);
 })
 
+app.get('/questions', (req, res) => {
+    res.send(shuffleQuestions);
+})
+
 // This is another example of an "end point".
 // You can connect to this end point by going to "localhost:5000/error"
 // The page will say "This localhost page can’t be found" and give you a "HTTP ERROR 404"
@@ -67,6 +70,7 @@ app.get('/error', (req, res) => {
     res.end();
 });
 //---------------------------------------------
+
 
 // Function to query database with proper async and await
 async function queryDB (query, placeholder) {
