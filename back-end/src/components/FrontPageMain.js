@@ -11,7 +11,7 @@ export default function FrontPageMain() {
             </h2>
             <a href="/questions">
                 <button className="page--button">
-                    Take our quiz!&nbsp;<EastIcon />
+                    <strong>Take our quiz!</strong>
                 </button>
             </a>
         </main>
