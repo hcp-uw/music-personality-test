@@ -10,10 +10,10 @@ export default function Questions() {
     const [results, setResults] = useState([])
 
     // API data
-    const [questions, setQuestions] = useState([])
+    // const [questions, setQuestions] = useState([])
     
     // Fake data from questionData.js
-    //const [questions, setQuestions] = useState(data)
+    const [questions, setQuestions] = useState(data)
 
 
     useEffect(() => {
