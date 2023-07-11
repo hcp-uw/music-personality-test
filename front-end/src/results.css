@@ -56,3 +56,42 @@
     padding-left: 150px;
     padding: 15px 20px 30px 130px;
   }
+
+  .rectangle-2 {
+    width: 400px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #876AC5;
+    margin-left: 20px;
+    position: absolute;
+    left: 90vb;
+    top: 300px;
+  }
+
+  .rectangle-desc2 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 12px;
+    width: 300px;
+    padding-left: 150px;
+    padding: 15px 20px 30px 130px;
+  }
+
+.rectangle-title1 {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -30px;
+    margin-left: 40px;
+}
+
+.rectangle-title2 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -30px;
+    margin-left: 50px;
+}
+
