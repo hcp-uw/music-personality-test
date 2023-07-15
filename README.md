@@ -5,7 +5,7 @@
 
 2. In the terminal, do
 ~~~bash
-git clone -b backend https://github.com/hcp-uw/music-personality-test.git
+git clone https://github.com/hcp-uw/music-personality-test.git
 ~~~
 
 3. Open VS Code and open __music-personality-test__ folder with _open_folder_ option.
