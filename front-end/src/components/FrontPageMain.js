@@ -1,19 +1,22 @@
 import '../App.css'
-import EastIcon from '@mui/icons-material/East';
+import EastIcon from '@mui/icons-material/East'
+import manImg from '../images/Person2Emotions.png'
+import musicImg from '../images/MusicStack.png'
 
 export default function FrontPageMain() {
     return (
         <main className="front--main">
-            <h1>Music Personality Test</h1>
-            <h2>
-                Want to find what your
-                music personality is?
-            </h2>
-            <a href="/questions">
-                <button className="page--button">
-                    <strong>Take our quiz!</strong>
-                </button>
-            </a>
+            <div className="main--content">
+                <div>
+                    <img src={manImg} alt="manImg" />
+                </div>
+                <div className="test">
+                    <EastIcon fontSize="large"/>
+                </div>
+                <div>
+                    <img src={musicImg} alt="musicImg" />
+                </div>
+            </div>
         </main>
     )
 }

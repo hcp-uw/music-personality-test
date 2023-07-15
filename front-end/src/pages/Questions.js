@@ -1,3 +1,7 @@
+// Note: need to % results before sending to backend
+// Note: need to change object to json
+// Note: need to give questions unique keys
+
 import {useState, useEffect} from 'react'
 import Question from '../components/Question'
 import EastIcon from '@mui/icons-material/East'
@@ -10,31 +14,28 @@ export default function Questions() {
     const [results, setResults] = useState([])
 
     // API data
-    const [questions, setQuestions] = useState([])
+    // const [questions, setQuestions] = useState([])
     
     // Fake data from questionData.js
-    //const [questions, setQuestions] = useState(data)
+    const [questions, setQuestions] = useState(data)
 
+    // useEffect(() => {
+    //     console.log("taken")
+    //     axios.get("http://67.168.214.36:8080/questions")
+    //         .then(res => {
+    //             setQuestions(res.data)
+    //         })
+    //         .catch(error => {
+    //             console.error(error)
+    //         });
+    // }, []);
 
-    useEffect(() => {
-        console.log("test")
-        axios.get("http://67.168.214.36:8080/questions")
-            .then(res => {
-                console.log(res);
-                setQuestions(res);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, [dataSet]);
-
-    
     function nextPageData(event) {
         event.preventDefault()
-        setDataSet(prevDataSet => prevDataSet + 1)
+        setDataSet(prevDataSet => prevDataSet + 6)
     }
     
-    function changePage(event) {
+    function resultsPage(event) {
         event.preventDefault()
         window.location.href = "/results"
     }
@@ -59,7 +60,7 @@ export default function Questions() {
         })
     }
     
-    const renderQuestions = questions.map(item => {
+    const renderQuestions = questions.slice(dataSet, dataSet + 6).map(item => {
         let questionId = -1
         if (results.length > 0) {
             questionId = results.findIndex(question => question.id === item.id)
@@ -82,12 +83,10 @@ export default function Questions() {
 
     return (
         <div className="questions--div">
-            <form>
-                {renderQuestions}
-                <button className="page--button" onClick={dataSet < 6 ? nextPageData : changePage}>
-                    Next&nbsp;<EastIcon />
-                </button>
-            </form>
+            {renderQuestions}
+            <button className="page--button" onClick={dataSet < 30 ? nextPageData : resultsPage}>
+                Next&nbsp;<EastIcon />
+            </button>
         </div>
     )
 }
