@@ -84,7 +84,7 @@ export default function Questions() {
     return (
         <div className="questions--div">
             {renderQuestions}
-            <button disabled className="page--button" onClick={dataSet < 30 ? nextPageData : resultsPage}>
+            <button className="page--button" onClick={dataSet < 30 ? nextPageData : resultsPage}>
                 Next&nbsp;<EastIcon />
             </button>
         </div>
