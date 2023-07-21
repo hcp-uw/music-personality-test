@@ -296,11 +296,11 @@ body {
 }
 
 /* Make the "Strongly Agree" and "Strongly Agree" the same color  */
-#positive {
+.positive {
   color: #33a474;
 }
 
-#negative {
+.negative {
   color: #88619a
 }
 

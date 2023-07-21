@@ -12,7 +12,7 @@ export default function Question(props) {
         <div className="question">
             <h2>{props.children}</h2>
             <div className="question--buttons">
-                <h3 id="negative">Strongly Disagree</h3>
+                <h3 className="negative">Strongly Disagree</h3>
                 <input
                     id={getId(0)}
                     type="radio"
@@ -53,7 +53,7 @@ export default function Question(props) {
                     checked={props.result === getRadioNum(4) ? true : false}
                 />
                 <label htmlFor={getId(4)}></label>
-                <h3 id="positive">Strongly Agree</h3>
+                <h3 className="positive">Strongly Agree</h3>
             </div>
         </div>
     )
