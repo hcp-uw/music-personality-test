@@ -262,11 +262,6 @@ body {
   cursor: pointer;
 }
 
-.question--buttons > input[type='radio']:checked + label,
-.question--buttons > input[type='radio']:hover + label  {
-  background-color: black;
-}
-
 .question--buttons > h3 {
   margin: 5px;
 }
@@ -278,14 +273,16 @@ body {
   min-height: 25px;
 }
 
-.q--slight + label {
+.q--slight-pos + label,
+.q--slight-neg + label {
   width:30px;
   height: 30px;
   min-width: 30px;
   min-height: 30px;
 }
 
-.q--strong + label {
+.q--strong-pos + label,
+.q--strong-neg + label {
   width: 38px;
   height: 38px;
   min-width: 38px;
@@ -296,4 +293,52 @@ body {
   position: absolute;
   top: 40px;
   font-family: 'Poppins', sans-serif;
+}
+
+/* Make the "Strongly Agree" and "Strongly Agree" the same color  */
+#positive {
+  color: #33a474;
+}
+
+#negative {
+  color: #88619a
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--slight-neg + label,
+.question--buttons > input.q--strong-neg + label {
+  border-color: #88619a;
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--slight-pos + label,
+.question--buttons > input.q--strong-pos + label {
+  border-color: #33a474;
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--neutral + label {
+  border-color: #9b9faa;
+}
+
+/* Makes the negative buttons purple (input fields) on checked and hover  */
+input.q--strong-neg:checked + label,
+input.q--strong-neg:hover + label,
+input.q--slight-neg:checked + label,
+input.q--slight-neg:hover + label {
+  background-color:#88619a;
+}
+
+/* Makes the center buttons (input fields) gray on checked and hover  */
+input.q--neutral:checked + label,
+input.q--neutral:hover + label {
+  background-color: #9b9faa;
+}
+
+/* Makes the positive buttons (input fields) green on checked and hover  */
+input.q--slight-pos:checked + label,
+input.q--slight-pos:hover + label,
+input.q--strong-pos:checked + label,
+input.q--strong-pos:hover + label {
+  background-color: #33a474;
 }

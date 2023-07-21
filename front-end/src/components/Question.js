@@ -1,56 +1,59 @@
 export default function Question(props) {
+
     function getId (radioNum) {
         return `radio${((props.id - 1) * 5) + radioNum}`
     }
+
     function getRadioNum (radioNum) {
         return ((props.id - 1) * 5) + radioNum
     }
+
     return (
         <div className="question">
             <h2>{props.children}</h2>
             <div className="question--buttons">
-                <h3>Strongly Disagree</h3>
+                <h3 id="negative">Strongly Disagree</h3>
                 <input
                     id={getId(0)}
-                    type="radio" 
-                    className="q--strong" 
+                    type="radio"
+                    className="q--strong-neg"
                     onClick={()=>props.addResult(props.id, getRadioNum(0))}
                     checked={props.result === getRadioNum(0) ? true : false}
                 />
                 <label htmlFor={getId(0)}></label>
                 <input
                     id={getId(1)}
-                    type="radio" 
-                    className="q--slight"
+                    type="radio"
+                    className="q--slight-neg"
                     onClick={()=>props.addResult(props.id, getRadioNum(1))}
                     checked={props.result === getRadioNum(1) ? true : false}
                 />
                 <label htmlFor={getId(1)}></label>
                 <input
-                    id={getId(2)} 
-                    type="radio" 
+                    id={getId(2)}
+                    type="radio"
                     className="q--neutral"
                     onClick={()=>props.addResult(props.id, getRadioNum(2))}
                     checked={props.result === getRadioNum(2) ? true : false}
                 />
                 <label htmlFor={getId(2)}></label>
                 <input
-                    id={getId(3)} 
-                    type="radio" 
-                    className="q--slight"
+                    id={getId(3)}
+                    type="radio"
+                    className="q--slight-pos"
                     onClick={()=>props.addResult(props.id, getRadioNum(3))}
                     checked={props.result === getRadioNum(3) ? true : false}
                 />
                 <label htmlFor={getId(3)}></label>
                 <input
-                    id={getId(4)} 
-                    type="radio" 
-                    className="q--strong"
+                    id={getId(4)}
+                    type="radio"
+                    className="q--strong-pos"
                     onClick={()=>props.addResult(props.id, getRadioNum(4))}
                     checked={props.result === getRadioNum(4) ? true : false}
                 />
                 <label htmlFor={getId(4)}></label>
-                <h3>Strongly Agree</h3>
+                <h3 id="positive">Strongly Agree</h3>
             </div>
         </div>
     )

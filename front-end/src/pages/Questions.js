@@ -15,7 +15,7 @@ export default function Questions() {
 
     // API data
     // const [questions, setQuestions] = useState([])
-    
+
     // Fake data from questionData.js
     const [questions, setQuestions] = useState(data)
 
@@ -34,12 +34,12 @@ export default function Questions() {
         event.preventDefault()
         setDataSet(prevDataSet => prevDataSet + 6)
     }
-    
+
     function resultsPage(event) {
         event.preventDefault()
         window.location.href = "/results"
     }
-    
+
     function addResult(newId, answer) {
         let sameId = -1
         if (results.length > 0) {
@@ -51,7 +51,7 @@ export default function Questions() {
             } else {
                 return(
                     [
-                        ...prevResults.slice(0, sameId), 
+                        ...prevResults.slice(0, sameId),
                         {...prevResults[sameId], result: answer},
                         ...prevResults.slice(sameId + 1)
                     ]
@@ -59,7 +59,7 @@ export default function Questions() {
             }
         })
     }
-    
+
     const renderQuestions = questions.slice(dataSet, dataSet + 6).map(item => {
         let questionId = -1
         if (results.length > 0) {
@@ -70,10 +70,10 @@ export default function Questions() {
             questionResult = results.find(question => question.id === item.id).result
         }
         return (
-            <Question 
-                key={item.id} 
-                id={item.id} 
-                addResult={addResult} 
+            <Question
+                key={item.id}
+                id={item.id}
+                addResult={addResult}
                 result={questionResult}
             >
                 {item.question}
@@ -84,7 +84,7 @@ export default function Questions() {
     return (
         <div className="questions--div">
             {renderQuestions}
-            <button className="page--button" onClick={dataSet < 30 ? nextPageData : resultsPage}>
+            <button disabled className="page--button" onClick={dataSet < 30 ? nextPageData : resultsPage}>
                 Next&nbsp;<EastIcon />
             </button>
         </div>
