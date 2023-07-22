@@ -1,0 +1,344 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  height: 100px;
+  padding: 10px;
+  align-items: center;
+  background-color: #876AC5;
+  box-shadow: 0px 5px 7.5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.nav--logo {
+  height: 110px;
+  margin-right: 0px;
+}
+
+.nav--tabs {
+  display: flex;
+  gap: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #FFF;
+  font-size: 21px;
+  margin-right: auto;
+}
+
+.nav--tabs > p {
+  transition: 0.2s ease;
+  padding-bottom: 2px;
+  border-bottom: 2px solid rgba(0,0,0,0);
+
+}
+
+.nav--tabs > p:hover {
+  border-bottom-color: #fff;
+  cursor: pointer;
+}
+
+.navbar > button {
+  margin-right: 15px;
+  border-radius: 12px;
+  border-width: 0;
+  background-color: #FFF;
+  width: 150px;
+  height: 50px;
+  flex-shrink: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px;
+  transition: 0.2s ease-out;
+}
+
+.navbar > button:hover {
+  background-color: #B5E48C;
+  color: #FFF;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.front--main {
+  display: flex;
+  justify-content: center;
+}
+
+.main--content {
+  margin-top: 30px;
+  display: flex;
+  width: 1261px;
+  height: 609px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background: linear-gradient(180deg, #FBC2EB 0%, #FCCB90 100%);
+  border-radius: 30px;
+}
+
+.login--background {
+  position: absolute;
+  width: 60vw;
+  height: 60vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background: linear-gradient(138deg, #876AC5 0%, #FBC2EB 100%);
+  border-radius: 30px;
+}
+
+.login--form {
+  background: #fcfcfc;
+  height: 90%;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 5%;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+}
+
+.login--form > h1 {
+  align-self: center;
+  margin-bottom: 50px;
+}
+
+.login--form > label {
+  font-size: 22px;
+}
+
+.login--form > input {
+  border-radius: 10px;
+  border-color: #8A8A8A;
+  border-width: 1px;
+  height: 55px;
+  margin-bottom: 20px;
+  padding: 0px 3%;
+  font-size: 18px;
+  transition: 0.2s ease;
+}
+
+.login--form > input:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgb(179, 179, 179);
+}
+
+.login--form > button {
+  background: linear-gradient(90deg, #04CC00 0%, #04CC00 0.01%, rgba(94, 232, 92, 0.49) 50%, #0400CC 50.01%, rgba(74, 19, 152, 0.78) 76.56%, rgba(209, 54, 54, 0.35) 100%);
+  height: 50px;
+  border-radius: 20px;
+  align-self: center;
+  width: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  border-width: 0;
+  transition: all 0.25s ease-out;
+  background-size: 205% auto;
+}
+
+.login--form > button:hover {
+  cursor: pointer;
+  background-position: right center;
+}
+
+.login--links {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+.signup--link, .password--link {
+  width: 50%;
+}
+
+.modal--backdrop {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background-color:rgba(0,0,0,0.3);
+}
+
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.page--button {
+  border-radius: 30px;
+  border-color: transparent;
+  background-color: #9917FF;
+  color : black;
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  width: 300px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+  margin-top: 20px;
+}
+
+.page--button:hover  {
+  background-color: #7210bd;
+  cursor: pointer;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  min-width: 480px;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.questions--div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.questions--div > button {
+  margin: 40px 0;
+}
+
+.question--buttons {
+  margin-top: -15px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.question--buttons > input[type='radio'] {
+  display: none;
+}
+
+.question--buttons > input[type='radio'] + label {
+  margin: 15px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  background-color: white;
+  transition: .2s ease;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.question--buttons > h3 {
+  margin: 5px;
+}
+
+.q--neutral + label {
+  width:25px;
+  height: 25px;
+  min-width: 25px;
+  min-height: 25px;
+}
+
+.q--slight-pos + label,
+.q--slight-neg + label {
+  width:30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.q--strong-pos + label,
+.q--strong-neg + label {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.results--div {
+  position: absolute;
+  top: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Make the "Strongly Agree" and "Strongly Agree" the same color  */
+.positive {
+  color: #33a474;
+}
+
+.negative {
+  color: #88619a
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--slight-neg + label,
+.question--buttons > input.q--strong-neg + label {
+  border-color: #88619a;
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--slight-pos + label,
+.question--buttons > input.q--strong-pos + label {
+  border-color: #33a474;
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--neutral + label {
+  border-color: #9b9faa;
+}
+
+/* Makes the negative buttons purple (input fields) on checked and hover  */
+input.q--strong-neg:checked + label,
+input.q--strong-neg:hover + label,
+input.q--slight-neg:checked + label,
+input.q--slight-neg:hover + label {
+  background-color:#88619a;
+}
+
+/* Makes the center buttons (input fields) gray on checked and hover  */
+input.q--neutral:checked + label,
+input.q--neutral:hover + label {
+  background-color: #9b9faa;
+}
+
+/* Makes the positive buttons (input fields) green on checked and hover  */
+input.q--slight-pos:checked + label,
+input.q--slight-pos:hover + label,
+input.q--strong-pos:checked + label,
+input.q--strong-pos:hover + label {
+  background-color: #33a474;
+}
