@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Questions from './pages/Questions'
 import Results from './pages/Results'
 import Login from './components/Login'
+import Signup from './components/Signup'
 
 function App() {
     const [isMounted, setIsMounted] = useState(false)
@@ -49,6 +50,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/questions' element={<Questions/>} />
             <Route path='/results' element={<Results/>} />
+            <Route path='/signup' element={<Signup toggleLogin={toggleLogin}/>} />
         </Routes>
     </Router>
     );

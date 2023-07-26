@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import axios from 'axios';
+import axios from 'axios'
 
-export default function Login(props) {
+export default function Signup(props) {
     // Keeps track of user input in each field
     const [formData, setFormData] = useState(
         {
+            first: "",
+            last: "",
             email: "",
             password: "",
             auth_key:"ABC"
@@ -33,11 +35,27 @@ export default function Login(props) {
             console.log(res);
         })
     }
-
+    
     return(
-        <div className="login--background">
-            <form className="login--form" onSubmit={handleSubmit}>
-                <h1 className="form--header">Welcome Back!</h1>
+        <div className="signup--background">
+            <form className="signup--form" onSubmit={handleSubmit}>
+                <h1 className="form--header">Create Account</h1>
+                <label htmlFor="first" className="form--label">First Name</label>
+                <input 
+                    type="text"
+                    name="first"
+                    className="form--input"
+                    value={formData.first}
+                    onChange={handleChange}
+                />
+                <label htmlFor="last" className="form--label">Last Name</label>
+                <input 
+                    type="text"
+                    name="last"
+                    className="form--input"
+                    value={formData.last}
+                    onChange={handleChange}
+                />
                 <label htmlFor="email" className="form--label">Email</label>
                 <input 
                     type="text"
@@ -54,18 +72,15 @@ export default function Login(props) {
                     value={formData.password}
                     onChange={handleChange}
                 />
-                <button className="form--button">Sign In</button>
-                <div className="login--links">
+                <button className="form--button">Create Account</button>
+                <div className="signup--links">
+                    <p>Already a member?</p>
                     <p 
-                        onClick={() => {
-                            props.toggleLogin() 
-                            window.location.href = './signup'
-                        }}
-                        className="form--link"        
+                        className="form--link" 
+                        onClick={() => props.toggleLogin()}
                     >
-                        Sign up here!
+                        Log in
                     </p>
-                    <p className="form--link">Forgot Password?</p>
                 </div>
             </form>
         </div>
