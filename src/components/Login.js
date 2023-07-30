@@ -18,7 +18,7 @@ export default function Login(props) {
             return (
                 {
                     ...prevFormData,
-                    [name]: value                    
+                    [name]: value
                 }
 
             )
@@ -39,7 +39,7 @@ export default function Login(props) {
             <form className="login--form" onSubmit={handleSubmit}>
                 <h1 className="form--header">Welcome Back!</h1>
                 <label htmlFor="email" className="form--label">Email</label>
-                <input 
+                <input
                     type="text"
                     name="email"
                     className="form--input"
@@ -47,7 +47,7 @@ export default function Login(props) {
                     onChange={handleChange}
                 />
                 <label htmlFor="password" className="form--label">Password</label>
-                <input 
+                <input
                     type="text"
                     name="password"
                     className="form--input"
@@ -56,12 +56,12 @@ export default function Login(props) {
                 />
                 <button className="form--button">Sign In</button>
                 <div className="login--links">
-                    <p 
+                    <p
                         onClick={() => {
-                            props.toggleLogin() 
-                            window.location.href = './signup'
+                            props.toggleLogin()
+                            window.location.href = './#/signup'
                         }}
-                        className="form--link"        
+                        className="form--link"
                     >
                         Sign up here!
                     </p>

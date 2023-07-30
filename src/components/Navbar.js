@@ -8,7 +8,7 @@ export default function Navbar(props) {
             <div className="nav--tabs">
                 <p onClick={() => {window.location.href = "/"}}>Home Page</p>
                 <p>About Personality Types</p>
-                <p onClick={() => {window.location.href = "/questions"}}>Personality Test</p>
+                <p onClick={() => {window.location.href = "/#/questions"}}>Personality Test</p>
             </div>
             <button onClick={() => props.toggleLogin()}>Login</button>
         </nav>

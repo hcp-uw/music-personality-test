@@ -38,7 +38,7 @@ export default function Questions() {
     // Redirects the user to the results page
     function resultsPage(event) {
         event.preventDefault()
-        window.location.href = "/results"
+        window.location.href = "/#/results"
     }
 
     // After each button clicked by the user, addResult collects that answer and adds it to state
