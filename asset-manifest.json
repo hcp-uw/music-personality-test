@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/music-personality-test/static/css/main.aec8974a.css",
-    "main.js": "/music-personality-test/static/js/main.95bd72f6.js",
+    "main.js": "/music-personality-test/static/js/main.dfc1c422.js",
     "static/media/Person2Emotions.png": "/music-personality-test/static/media/Person2Emotions.79a7d70699772bdb90a7.png",
     "static/media/MusicStack.png": "/music-personality-test/static/media/MusicStack.4c60d9a017b9282a5a39.png",
     "index.html": "/music-personality-test/index.html",
     "main.aec8974a.css.map": "/music-personality-test/static/css/main.aec8974a.css.map",
-    "main.95bd72f6.js.map": "/music-personality-test/static/js/main.95bd72f6.js.map"
+    "main.dfc1c422.js.map": "/music-personality-test/static/js/main.dfc1c422.js.map"
   },
   "entrypoints": [
     "static/css/main.aec8974a.css",
-    "static/js/main.95bd72f6.js"
+    "static/js/main.dfc1c422.js"
   ]
 }
