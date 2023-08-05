@@ -1,22 +1,21 @@
 import './App.css';
-// import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import { Routes, Route } from "react-router-dom";
+//import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Questions from './pages/Questions'
 import Results from './pages/Results'
 import Login from './components/Login'
-import Signup from './components/Signup'
-
+import React from "react";
 // function App() {
 //     const [isMounted, setIsMounted] = useState(false)
 //     const [showLogin, setShowLogin] = useState(false)
 
-    // function toggleLogin() {
-    //     setIsMounted(prevMounted => !prevMounted)
-    //     if (!showLogin) setShowLogin(true)
-    // }
+//     function toggleLogin() {
+//         setIsMounted(prevMounted => !prevMounted)
+//         if (!showLogin) setShowLogin(true)
+//     }
 
 //     const mountedStyle = {
 //         animation: "inAnimation 250ms ease-in"
@@ -26,102 +25,35 @@ import Signup from './components/Signup'
 //         animationFillMode: "forwards"
 //     }
 
-//     // return (
-//     // //<Router>
-//     //     <div className="app">
-//     //     <Navbar toggleLogin={toggleLogin}/>
-//     //     {
-//     //         showLogin &&
-//     //         <div
-//     //             onAnimationEnd={() => {
-//     //                 if (!isMounted) setShowLogin(false);
-//     //             }}
-//     //         >
-//     //             <Login toggleLogin={toggleLogin} isShown={showLogin}/>
-//     //             <div
-//     //                 className="modal--backdrop"
-//     //                 style={isMounted ? mountedStyle : unmountedStyle}
-//     //                 onClick={() => {
-//     //                     setShowLogin(prevLogin => !prevLogin)
-//     //                     toggleLogin()
-//     //                 }}
-//     //             ></div>
-//     //         </div>
-//     //     }
-//     //     <Routes>
-//     //         <Route path='/' element={<Home />} />
-//     //         <Route path='/questions' element={<Questions/>} />
-//     //         <Route path='/results' element={<Results/>} />
-//     //         <Route path='/signup' element={<Signup toggleLogin={toggleLogin}/>} />
-//     //     </Routes>
-//     //     </div>
-//     // //</Router>
-//     // );
-
 //     return (
-//         <div className="app">
-//             <Routes>
-//                 <Route path="/" element={<Home />} />
-//                 <Route path="/questions" element={<Questions />} />
-//                 <Route path="/results" element={<Results />} />
-//                 <Route path="/signup" element={<Signup toggleLogin={toggleLogin} />} />
-//             </Routes>
+//         <div>
+//         <Navbar toggleLogin={toggleLogin}/>
+
+//         <Routes>
+//             <Route path='/' element={<Home />} />
+//             <Route path='/questions' element={<Questions/>} />
+//             <Route path='/results' element={<Results/>} />
+//         </Routes>
 //         </div>
-//     )
+//     //</Router>
+//     );
 // }
 
-// export default App;
 
-const App = () => {
 
-    const [isMounted, setIsMounted] = useState(false)
-    const [showLogin, setShowLogin] = useState(false)
+class App extends React.Component {
+    render() {
+        return (
+            <div>
+            <Navbar/>
 
-    function toggleLogin() {
-        setIsMounted(prevMounted => !prevMounted)
-        if (!showLogin) setShowLogin(true)
-    }
-
-    const mountedStyle = {
-        animation: "inAnimation 250ms ease-out"
-    }
-
-    const unmountedStyle = {
-        animation: "outAnimation 270ms ease-out",
-        animationFillMode: "forwards"
-    }
-
-    return (
-        <div className="app">
-            <Navbar toggleLogin={ toggleLogin } />
-            {
-                showLogin &&
-                    <div onAnimationEnd = {() => {
-                        if (!isMounted) setShowLogin(false);
-                    }}
-                    >
-                        <Login toggleLogin={ toggleLogin } isShown={ showLogin } />
-                        <div className="modal--backdrop"
-                            style = {isMounted ? mountedStyle : unmountedStyle}
-                            onClick={() => {
-                                setShowLogin(prevLogin => !prevLogin)
-                                toggleLogin()
-                            }}
-                            ></div>
-                            </div>
-            }
             <Routes>
-                {/* <Route path="/" element={<Home />} />
-                <Route path="/questions" element={<Questions />} />
-                <Route path="/results" element={<Results />} />
-                <Route path="/signup" element={<Signup toggleLogin={toggleLogin} />} /> */}
-                <Route exact path='/' element={<Home />} />
-                <Route exact path ='/questions' element={<Questions />} />
-                <Route exact path='/results' element={<Results />} />
-                <Route exact path='/signup' element={<Signup toggleLogin={toggleLogin} />} />
+                <Route path='/' element={<Home />} />
+                <Route path='/questions' element={<Questions/>} />
+                <Route path='/results' element={<Results/>} />
             </Routes>
         </div>
-    )
+        )
+    }
 }
-
 export default App;

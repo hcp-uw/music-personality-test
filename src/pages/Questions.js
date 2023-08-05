@@ -1,3 +1,7 @@
+// Note: need to % results before sending to backend
+// Note: need to change object to json
+// Note: need to give questions unique keys
+
 import {useState, useEffect} from 'react'
 import Question from '../components/Question'
 import EastIcon from '@mui/icons-material/East'
@@ -5,21 +9,18 @@ import data from '../questionData'
 import axios from 'axios';
 
 export default function Questions() {
-    // Variable that represents which set of questions are displayed at each render
     const [dataSet, setDataSet] = useState(0)
 
-    // Variable that contains each question's answer
-    // Note: need to % results before sending to backend
     const [results, setResults] = useState([])
 
     // API data
-    //const [questions, setQuestions] = useState([])
+    // const [questions, setQuestions] = useState([])
 
     // Fake data from questionData.js
     const [questions, setQuestions] = useState(data)
 
-    // During the first render of questions, gathers all the questions to be saved in state
     // useEffect(() => {
+    //     console.log("taken")
     //     axios.get("http://67.168.214.36:8080/questions")
     //         .then(res => {
     //             setQuestions(res.data)
@@ -29,23 +30,19 @@ export default function Questions() {
     //         });
     // }, []);
 
-    // Shifts the questions rendered to the next 6
     function nextPageData(event) {
         event.preventDefault()
         setDataSet(prevDataSet => prevDataSet + 6)
     }
 
-    // Redirects the user to the results page
     function resultsPage(event) {
         event.preventDefault()
-        window.location.href = "/#/results"
+        window.location.href = "/results"
     }
 
-    // After each button clicked by the user, addResult collects that answer and adds it to state
-    // or changes a previous result to the new answer
     function addResult(newId, answer) {
         let sameId = -1
-        if (results.length > 0) { // the user has given an answer already in the test
+        if (results.length > 0) {
             sameId = results.findIndex(question => question.id === newId)
         }
         setResults(prevResults => {
@@ -63,7 +60,6 @@ export default function Questions() {
         })
     }
 
-    // Renders the set of questions with their answers saved from state
     const renderQuestions = questions.slice(dataSet, dataSet + 6).map(item => {
         let questionId = -1
         if (results.length > 0) {
@@ -88,7 +84,7 @@ export default function Questions() {
     return (
         <div className="questions--div">
             {renderQuestions}
-            <button className="next--button" onClick={dataSet < 30 ? nextPageData : resultsPage}>
+            <button className="page--button" onClick={dataSet < 30 ? nextPageData : resultsPage}>
                 Next&nbsp;<EastIcon />
             </button>
         </div>
