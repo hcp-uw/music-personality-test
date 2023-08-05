@@ -28,7 +28,7 @@ export default function Login(props) {
     // Sends data to backend as a JSON object and gathers the info that is returned
     function handleSubmit(event) {
         event.preventDefault()
-        axios.get("http://67.168.214.36:8080/login", JSON.stringify(formData, null, 2))
+        axios.get("http://67.168.214.36:5000/login", JSON.stringify(formData, null, 2))
         .then((res) => {
             console.log(res);
         })
