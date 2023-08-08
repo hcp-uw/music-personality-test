@@ -13,21 +13,21 @@ export default function Questions() {
     const [results, setResults] = useState([])
 
     // API data
-    //const [questions, setQuestions] = useState([])
+    const [questions, setQuestions] = useState([])
 
     // Fake data from questionData.js
-    const [questions, setQuestions] = useState(data)
+    //const [questions, setQuestions] = useState(data)
 
     // During the first render of questions, gathers all the questions to be saved in state
-    // useEffect(() => {
-    //     axios.get("http://67.168.214.36:8080/questions")
-    //         .then(res => {
-    //             setQuestions(res.data)
-    //         })
-    //         .catch(error => {
-    //             console.error(error)
-    //         });
-    // }, []);
+    useEffect(() => {
+        axios.get("http://67.168.214.36:8080/questions")
+            .then(res => {
+                setQuestions(res.data)
+            })
+            .catch(error => {
+                console.error(error)
+            });
+    }, []);
 
     // Shifts the questions rendered to the next 6
     function nextPageData(event) {
