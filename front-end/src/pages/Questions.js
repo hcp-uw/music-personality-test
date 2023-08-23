@@ -20,7 +20,7 @@ export default function Questions() {
 
     // During the first render of questions, gathers all the questions to be saved in state
     useEffect(() => {
-        axios.get("http://67.168.214.36:8080/questions")
+        axios.get("http://67.168.214.36:5000/questions")
             .then(res => {
                 setQuestions(res.data)
             })

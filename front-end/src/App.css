@@ -251,6 +251,15 @@ body {
   align-items: center;
 }
 
+.form--error {
+  margin-top: -20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(219, 0, 0);
+  display: flex; 
+  align-items: center;
+}
+
 /* Darkened backdrop for login modal popup */
 .modal--backdrop {
   position:fixed;
