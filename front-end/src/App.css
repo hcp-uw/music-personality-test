@@ -9,25 +9,27 @@ body {
 
 .navbar {
   display: flex;
-  height: 100px;
+  height: 90px;
   padding: 10px;
   align-items: center;
   background-color: #876AC5;
   box-shadow: 0px 5px 7.5px rgba(0, 0, 0, 0.1);
   width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .nav--logo {
-  height: 110px;
+  height: 90px;
   margin-right: 0px;
 }
 
 .nav--tabs {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #FFF;
-  font-size: 21px;
+  font-size: 1.1rem;
   margin-right: auto;
 }
 
@@ -44,11 +46,14 @@ body {
 
 /* Login button's styling */
 .navbar > button {
+  margin-left: 25px;
   margin-right: 15px;
   border-radius: 12px;
   border-width: 0;
   background-color: #FFF;
-  width: 150px;
+  flex: auto;
+  min-width: 100px;
+  max-width: 150px;
   height: 50px;
   flex-shrink: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -74,8 +79,8 @@ body {
   margin-top: 30px;
   display: flex;
   width: 50vw;
-  min-width: 1000px;
-  height: 609px;
+  min-width: 850px;
+  height: 600px;
   justify-content: center;
   align-items: center;
   gap: 50px;
@@ -112,8 +117,10 @@ body {
 /* Login box, sign-up page, and children elements' styling from 113-234 */
 .login--background {
   position: absolute;
-  width: 60vw;
-  height: 60vh;
+  width: 85vw;
+  max-width: 650px;
+  height: 85vh;
+  max-height: 700px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -126,38 +133,50 @@ body {
   background: #fcfcfc;
   height: 90%;
   width: 90%;
-  max-width: 800px;
+  max-width: 600px;
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  padding: 30px 5%;
+  padding: 15px 5%;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
   border-radius: 15px;
+  overflow-y: auto;
+}
+
+.login--form::webkit-scrollbar {
+  display: none;
 }
 
 .form--header {
   align-self: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  color: rgb(50, 50, 50);
 }
 
 .form--label {
-  font-size: 20px;
+  font-size: 1.1rem;
   margin-bottom: 10px;
+  color: rgb(51, 51, 51);
+  
 }
 
 .form--input {
   border-radius: 7px;
   border: 2px solid #a1a1a1;
   border-width: 1px;
-  height: 55px;
-  margin-bottom: 20px;
-  padding: 0px 3%;
+  min-height: 45px;
+  height: 45px;
+  margin-bottom: 15px;
+  padding: 0px 10px;
   font-size: 18px;
   transition: 0.2s ease;
+  width: 100%;
+  color: rgb(51, 51, 51);
+  align-self: center;
 }
 
 .form--input:focus {
@@ -167,14 +186,14 @@ body {
 
 .form--button {
   background: linear-gradient(90deg, #04CC00 0%, #04CC00 0.01%, rgba(94, 232, 92, 0.49) 50%, #0400CC 50.01%, rgba(74, 19, 152, 0.78) 76.56%, rgba(209, 54, 54, 0.35) 100%);
-  height: 50px;
-  border-radius: 20px;
+  height: 45px;
+  border-radius: 22.5px;
   align-self: center;
   width: 50%;
   color: white;
   font-size: 20px;
   font-weight: 600;
-  margin: 25px 0px;
+  margin: 20px 0px;
   border-width: 0;
   transition: all 0.25s ease-out;
   background-size: 205% auto;
@@ -192,14 +211,36 @@ body {
 }
 
 .form--link {
-  font-size: 18px;
+  font-size: 1rem;
   color: blue;
   border-bottom: 1px solid rgb(0,0,255);
-  margin: 5px 0;
+  cursor: pointer;
 }
 
-.form--link:hover {
-  cursor: pointer;
+.signup--background {
+  background: linear-gradient(222deg, #876AC5 0%, #FBC2EB 100%);
+  height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: none;
+  padding: 20px;
+}
+
+.signup--form {
+  background: #fcfcfc;
+  height: auto;
+  width: 85vw;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 50px;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  margin: auto 0;
 }
 
 .signup--links {
@@ -210,27 +251,13 @@ body {
   align-items: center;
 }
 
-.signup--background {
-  background: linear-gradient(222deg, #876AC5 0%, #FBC2EB 100%);
-  height: calc(100vh - 100px);
-  display: flex;
-  justify-content: center;
-}
-
-.signup--form {
-  background: #fcfcfc;
-  height: 80%;
-  width: 70%;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  padding: 30px 5%;
-  justify-content: center;
-  font-family: 'Poppins', sans-serif;
-  border-radius: 15px;
-  top: 50%;
-  left: 50%;
-  margin: auto 0;
+.form--error {
+  margin-top: -20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(219, 0, 0);
+  display: flex; 
+  align-items: center;
 }
 
 /* Darkened backdrop for login modal popup */
@@ -296,7 +323,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
-  border-bottom: 1px solid black;
   align-items: center;
   font-family: 'Poppins', sans-serif;
   text-align: center;
