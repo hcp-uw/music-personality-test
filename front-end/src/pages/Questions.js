@@ -15,8 +15,13 @@ export default function Questions() {
     // API data
     const [questions, setQuestions] = useState([])
 
+    const [selectedOptions, setSelectedOptions] = useState(Array(6).fill(null));
     // Fake data from questionData.js
     //const [questions, setQuestions] = useState(data)
+
+    const [selected, setSelected] = useState(true);
+
+
 
     // During the first render of questions, gathers all the questions to be saved in state
     useEffect(() => {
@@ -29,14 +34,28 @@ export default function Questions() {
             });
     }, []);
 
+    useEffect(() => {
+        const allQuestionsAnswered = () => {
+            return selectedOptions.every((option) => option !== null);
+        }
+
+        if (allQuestionsAnswered()) {
+            setSelected(false);
+        }
+    }, [selectedOptions]);
+
     // Shifts the questions rendered to the next 6
     function nextPageData(event) {
+        setSelected(true);
+        setSelectedOptions(Array(6).fill(null));
         event.preventDefault()
         setDataSet(prevDataSet => prevDataSet + 6)
     }
 
     // Redirects the user to the results page
     function resultsPage(event) {
+        setSelected(true);
+        setSelectedOptions(Array(6).fill(null));
         event.preventDefault()
         window.location.href = "/results"
     }
@@ -63,8 +82,14 @@ export default function Questions() {
         })
     }
 
+    const updateSelectedOptions = (index, option) => {
+        const updatedOptions = [...selectedOptions];
+        updatedOptions[index] = option;
+        setSelectedOptions(updatedOptions);
+    };
+
     // Renders the set of questions with their answers saved from state
-    const renderQuestions = questions.slice(dataSet, dataSet + 6).map(item => {
+    const renderQuestions = questions.slice(dataSet, dataSet + 6).map((item, index) => {
         let questionId = -1
         if (results.length > 0) {
             questionId = results.findIndex(question => question.id === item.id)
@@ -79,6 +104,7 @@ export default function Questions() {
                 id={item.id}
                 addResult={addResult}
                 result={questionResult}
+                updateSelectedOptions={(option) => updateSelectedOptions(index, option)}
             >
                 {item.question}
             </Question>
@@ -88,9 +114,15 @@ export default function Questions() {
     return (
         <div className="questions--div">
             {renderQuestions}
-            <button className="next--button" onClick={dataSet < 30 ? nextPageData : resultsPage}>
-                Next&nbsp;<EastIcon />
-            </button>
+            {dataSet < 30 ? (
+                <button className={selected ? 'next--button disable-button':'next--button'} onClick={nextPageData}>
+                    Next&nbsp;<EastIcon />
+                </button>
+            ) : (
+                <button className={selected ? 'next--button disable-button': 'next--button'} onClick={resultsPage}>
+                    Finish&nbsp;<EastIcon />
+                </button>
+            )}
         </div>
     )
 }

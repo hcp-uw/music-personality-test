@@ -3,10 +3,12 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const sqlite = require("sqlite");
 const bcrypt = require('bcrypt');
+const cors = require("cors");
 
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cors);
 
 const API_KEY = "ABC";
 
@@ -22,7 +24,7 @@ app.post('/register', async (req, res) => {
     let email = req.body.email;
     let password = req.body.password;
 
-    if (auth_key != API_KEY) {
+    if (auth_key !== API_KEY) {
         res.status(401).send("Incorrect auth key");
         return;
     }
@@ -62,7 +64,7 @@ app.post('/login', async (req, res) => {
         let data = await queryDB("SELECT * FROM Person WHERE email = ?", [email]);
 
         // If the given email does not exist in our database
-        if (data.length == 0) {
+        if (data.length === 0) {
             res.status(401).send("Invalid login credentials");
             return;
         }

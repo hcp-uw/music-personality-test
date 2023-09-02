@@ -29,14 +29,14 @@ function App() {
     <Router>
         <Navbar toggleLogin={toggleLogin}/>
         {
-            showLogin && 
-            <div 
+            showLogin &&
+            <div
                 onAnimationEnd={() => {
                     if (!isMounted) setShowLogin(false);
                 }}
             >
                 <Login toggleLogin={toggleLogin} isShown={showLogin}/>
-                <div 
+                <div
                     className="modal--backdrop"
                     style={isMounted ? mountedStyle : unmountedStyle}
                     onClick={() => {
