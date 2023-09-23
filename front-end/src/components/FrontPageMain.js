@@ -10,8 +10,8 @@ export default function FrontPageMain() {
                     <img src={manImg} alt="manImg" />
                     <h2 className="box--header">Find your music personality within minutes!</h2>
                     <p className="box--text">
-                        Our algorithm allows you to determine your music preferences 
-                        from on a series of personality-based questions. 
+                        Our algorithm allows you to determine your music preferences
+                        from on a series of personality-based questions.
                     </p>
                 </div>
                 <div className="box--arrow">
@@ -21,7 +21,7 @@ export default function FrontPageMain() {
                     <img src={musicImg} alt="musicImg" />
                     <h2 className="box--header">Get valuable insights for your music preferences.</h2>
                     <p className="box--text">
-                        93% of the U.S. population listens to music, spending more 
+                        93% of the U.S. population listens to music, spending more
                         than 25 hours each week jamming out to their favorite tunes.
                     </p>
                 </div>
