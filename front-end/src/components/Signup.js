@@ -77,6 +77,7 @@ export default function Signup(props) {
                 <input 
                     type="text"
                     id="first"
+                    name="first"
                     className="form--input"
                     value={formData.first}
                     onChange={handleChange}
@@ -85,6 +86,7 @@ export default function Signup(props) {
                 <input 
                     type="text"
                     id="last"
+                    name="last"
                     className="form--input"
                     value={formData.last}
                     onChange={handleChange}
@@ -93,6 +95,7 @@ export default function Signup(props) {
                 <input 
                     type="text"
                     id="email"
+                    name="email"
                     className="form--input"
                     value={formData.email}
                     onChange={handleChange}
@@ -108,8 +111,9 @@ export default function Signup(props) {
                 }
                 <label htmlFor="password" className="form--label">Password</label>
                 <input 
-                    type="text"
+                    type="password"
                     id="password"
+                    name="password"
                     className="form--input"
                     value={formData.password}
                     onChange={handleChange}

@@ -90,7 +90,7 @@ export default function Login(props) {
                 }
                 <label htmlFor="password" className="form--label">Password</label>
                 <input 
-                    type="text"
+                    type="password"
                     name="password"
                     id="password"
                     className="form--input"

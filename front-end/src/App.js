@@ -14,22 +14,22 @@ function App() {
 
     function toggleLogin() {
         setIsMounted(prevMounted => !prevMounted)
-        if (!showLogin) setShowLogin(true)
+        setShowLogin(prevLogin => !prevLogin)
     }
 
     const mountedStyle = {
-        animation: "inAnimation 250ms ease-in"
+        animation: "modalInAnimation 250ms ease-in",
     }
     const unmountedStyle = {
-        animation: "outAnimation 270ms ease-out",
-        animationFillMode: "forwards"
+        animation: "modalOutAnimation 250ms ease-in",
+        animationFillMode: "both"
     }
 
     return (
     <Router>
         <Navbar toggleLogin={toggleLogin}/>
         {
-            showLogin && 
+            showLogin &&
             <div 
                 onAnimationEnd={() => {
                     if (!isMounted) setShowLogin(false);
@@ -40,7 +40,6 @@ function App() {
                     className="modal--backdrop"
                     style={isMounted ? mountedStyle : unmountedStyle}
                     onClick={() => {
-                        setShowLogin(prevLogin => !prevLogin)
                         toggleLogin()
                     }}
                 ></div>
