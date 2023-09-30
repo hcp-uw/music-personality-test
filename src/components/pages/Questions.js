@@ -10,7 +10,7 @@ export default function Questions() {
 
     // Variable that contains each question's answer
     // Note: need to % results before sending to backend
-    const [results, setResults] = useState([0,0,0,0])
+    const [results, setResults] = useState([])
 
     // API data
     const [questions, setQuestions] = useState([])
@@ -85,9 +85,6 @@ export default function Questions() {
         console.log(newId);
         console.log(answer);
 
-        setResults(prevResult => {
-
-        })
         let sameId = -1
         if (results.length > 0) { // the user has given an answer already in the test
             sameId = results.findIndex(question => question.id === newId)
@@ -125,9 +122,9 @@ export default function Questions() {
         }
         return (
             <Question
-                key={item.question}
+                key={item.id}
                 id={item.id}
-                addResult={updateResult}
+                addResult={addResult}
                 result={questionResult}
                 updateSelectedOptions={(option) => updateSelectedOptions(index, option)}
             >
