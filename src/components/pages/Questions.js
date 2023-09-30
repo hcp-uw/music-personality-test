@@ -2,8 +2,8 @@ import {useState, useEffect} from 'react'
 import Question from '../Question'
 import EastIcon from '@mui/icons-material/East'
 import data from '../../questionData'
-import axios from 'axios';
-
+import { UpdateUser } from "./../../backend/api/database"
+import { useAuth } from "./../../context/AuthContext";
 export default function Questions() {
     // Variable that represents which set of questions are displayed at each render
     const [dataSet, setDataSet] = useState(0)
@@ -21,7 +21,7 @@ export default function Questions() {
 
     const [selected, setSelected] = useState(true);
 
-
+    const { currentUser } = useAuth()
 
     // During the first render of questions, gathers all the questions to be saved in state
     useEffect(() => {
@@ -64,29 +64,65 @@ export default function Questions() {
 
     // Redirects the user to the results page
     function resultsPage(event) {
+        calculatePersonality();
         console.log(results);
-        setSelected(true);
-        setSelectedOptions(Array(6).fill(null));
-        event.preventDefault()
-        window.location.href = "/results"
+        // setSelected(true);
+        // setSelectedOptions(Array(6).fill(null));
+        // event.preventDefault()
+        // window.location.href = "/results"
     }
 
-    function updateResult(index, answer) {
-        const updatedList = [...results];
+    function calculatePersonality() {
+        let lst = [0,0,0,0];
+        let output = "";
 
-        updatedList[index] = updatedList[index] + answer;
+        for (const item of results) {
+            console.log(item);
+            let id = item.id;
+            let index = Math.floor(id / 10);
 
-        setResults(updatedList);
+            console.log(index);
+            lst[index - 1] = lst[index - 1] + item.result
+        }
+
+        if (lst[0] >= 0) {
+            output += "E";
+        } else {
+            output += "F";
+        }
+
+        if (lst[1] >= 0) {
+            output += "V";
+        } else {
+            output += "L";
+        }
+
+        if (lst[2] >= 0) {
+            output += "N";
+        } else {
+            output += "T";
+        }
+
+        if (lst[3] >= 0) {
+            output += "U";
+        } else {
+            output += "C";
+        }
+        console.log(lst);
+        console.log(output);
+
+        if (currentUser) {
+            UpdateUser(currentUser.uid, output);
+        } else {
+            UpdateUser("temp", output);
+        }
     }
     // After each button clicked by the user, addResult collects that answer and adds it to state
     // or changes a previous result to the new answer
     function addResult(newId, answer) {
 
-        console.log(newId);
-        console.log(answer);
-
         let sameId = -1
-        if (results.length > 0) { // the user has given an answer already in the test
+        if (results.length > 0) { // the user has given an answer already in the actualResult
             sameId = results.findIndex(question => question.id === newId)
         }
         setResults(prevResults => {

@@ -108,7 +108,7 @@ const data = [
     },
     {
         id: 38,
-        question: "You don’t really connect with older music vibes.",
+        question: "You don't really connect with older music vibes.",
     },
     /* commonality and uniqueness questions */
     {

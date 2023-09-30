@@ -4,6 +4,7 @@ import GoogleButton from 'react-google-button'
 import  { useAuth } from "../context/AuthContext"
 import { auth } from "../config/firebase"
 
+import { findUser, UpdateUser } from "./../backend/api/database"
 export default function Navbar(props) {
 
     const { signIn, currentUser, signOut } = useAuth();
@@ -11,9 +12,19 @@ export default function Navbar(props) {
     const handleSignIn = async () => {
         try {
             const result = await signIn();
-            console.log(currentUser);
+            console.log(result);
             //props.onSignInSuccess(result);
             //console.log(result);
+
+            let uid = result.user.uid;
+
+            // console.log(result.user.uid);
+            // let can = await findUser(result.user.uid);
+            // console.log(can)
+            let status = await findUser(uid);
+            if (!status) {
+                await UpdateUser(uid);
+            }
         } catch (err) {
             console.error(err);
         }
@@ -47,7 +58,7 @@ export default function Navbar(props) {
             {currentUser ? (
                 <div style={{display: "flex", alignItems: "center"}}>
 
-                    <p><strong>Welcome&nbsp;</strong> </p> <p style={{padding: "10px", color: "white"}}> {currentUser.displayName}</p>
+                    <p style={{padding: "10px", color: "white"}}> {currentUser.displayName}</p>
 
                     <span>
                         <img src={currentUser.photoURL} alt={"user id"}></img>
