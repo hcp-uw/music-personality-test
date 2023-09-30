@@ -5,7 +5,8 @@ export default function Question(props) {
     }
 
     function getRadioNum (radioNum) {
-        return ((props.id - 1) * 5) + radioNum
+        // return ((props.id - 1) * 5) + radioNum
+        return radioNum - 2;
     }
 
     return (
@@ -20,7 +21,7 @@ export default function Question(props) {
                     onClick={()=> {
                         props.addResult(props.id, getRadioNum(0));
                         props.updateSelectedOptions(0);
-                        console.log(props.selected);
+                        // console.log(props.selected);
                         }}
 
                     checked={props.result === getRadioNum(0) ? true : false}
@@ -33,7 +34,7 @@ export default function Question(props) {
                     onClick={()=> {
                         props.addResult(props.id, getRadioNum(1));
                         props.updateSelectedOptions(1);
-                        console.log(props.selected);
+                        // console.log(props.selected);
                         }}
                     checked={props.result === getRadioNum(1) ? true : false}
                 />
@@ -45,7 +46,7 @@ export default function Question(props) {
                     onClick={()=> {
                         props.addResult(props.id, getRadioNum(2));
                         props.updateSelectedOptions(3);
-                        console.log(props.selected);
+                        // console.log(props.selected);
                         }}
                     checked={props.result === getRadioNum(2) ? true : false}
                 />
@@ -57,7 +58,7 @@ export default function Question(props) {
                     onClick={()=> {
                         props.addResult(props.id, getRadioNum(3));
                         props.updateSelectedOptions(4);
-                        console.log(props.selected);
+                        // console.log(props.selected);
                         }}
                     checked={props.result === getRadioNum(3) ? true : false}
                 />
@@ -69,7 +70,7 @@ export default function Question(props) {
                     onClick={()=> {
                         props.addResult(props.id, getRadioNum(4));
                         props.updateSelectedOptions(5);
-                        console.log(props.selected);
+                        // console.log(props.selected);
                         }}
                     checked={props.result === getRadioNum(4) ? true : false}
                 />

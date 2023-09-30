@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
-import Question from '../components/Question'
+import Question from '../Question'
 import EastIcon from '@mui/icons-material/East'
-import data from '../questionData'
+import data from '../../questionData'
 import axios from 'axios';
 
 export default function Questions() {
@@ -10,7 +10,7 @@ export default function Questions() {
 
     // Variable that contains each question's answer
     // Note: need to % results before sending to backend
-    const [results, setResults] = useState([])
+    const [results, setResults] = useState([0,0,0,0])
 
     // API data
     const [questions, setQuestions] = useState([])
@@ -25,13 +25,22 @@ export default function Questions() {
 
     // During the first render of questions, gathers all the questions to be saved in state
     useEffect(() => {
-        axios.get("http://67.168.214.36:5000/questions")
-            .then(res => {
-                setQuestions(res.data)
-            })
-            .catch(error => {
-                console.error(error)
-            });
+
+        let output = [...data];
+
+    for (let i = output.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [output[i], output[j]] = [output[j], output[i]];
+    }
+
+        setQuestions(output)
+        // axios.get("http://67.168.214.36:5000/questions")
+        //     .then(res => {
+        //         setQuestions(res.data)
+        //     })
+        //     .catch(error => {
+        //         console.error(error)
+        //     });
     }, []);
 
     useEffect(() => {
@@ -46,6 +55,7 @@ export default function Questions() {
 
     // Shifts the questions rendered to the next 6
     function nextPageData(event) {
+        console.log(results);
         setSelected(true);
         setSelectedOptions(Array(6).fill(null));
         event.preventDefault()
@@ -54,15 +64,30 @@ export default function Questions() {
 
     // Redirects the user to the results page
     function resultsPage(event) {
+        console.log(results);
         setSelected(true);
         setSelectedOptions(Array(6).fill(null));
         event.preventDefault()
         window.location.href = "/results"
     }
 
+    function updateResult(index, answer) {
+        const updatedList = [...results];
+
+        updatedList[index] = updatedList[index] + answer;
+
+        setResults(updatedList);
+    }
     // After each button clicked by the user, addResult collects that answer and adds it to state
     // or changes a previous result to the new answer
     function addResult(newId, answer) {
+
+        console.log(newId);
+        console.log(answer);
+
+        setResults(prevResult => {
+
+        })
         let sameId = -1
         if (results.length > 0) { // the user has given an answer already in the test
             sameId = results.findIndex(question => question.id === newId)
@@ -100,9 +125,9 @@ export default function Questions() {
         }
         return (
             <Question
-                key={item.id}
+                key={item.question}
                 id={item.id}
-                addResult={addResult}
+                addResult={updateResult}
                 result={questionResult}
                 updateSelectedOptions={(option) => updateSelectedOptions(index, option)}
             >

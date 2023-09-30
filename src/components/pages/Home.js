@@ -1,5 +1,4 @@
-import FrontPageMain from '../components/FrontPageMain'
-
+import FrontPageMain from '../FrontPageMain'
 export default function Home() {
     return (
         <div>

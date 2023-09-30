@@ -14,5 +14,5 @@ export async function getData(q) {
 }
 
 export async function getUserData(uid) {
-  let data = await
+
 }
