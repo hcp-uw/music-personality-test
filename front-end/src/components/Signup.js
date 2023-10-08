@@ -30,7 +30,7 @@ export default function Signup(props) {
                 setProperEmail(false)
             }
         }, [formData.email])
-        
+
     // Updates state whenever password is changed
     useEffect(() => {
         if (formData.password.length >= 5) {
@@ -48,7 +48,7 @@ export default function Signup(props) {
             return (
                 {
                     ...prevFormData,
-                    [name]: value                    
+                    [name]: value
                 }
 
             )
@@ -68,13 +68,13 @@ export default function Signup(props) {
             setShowError(true)
         }
     }
-    
+
     return(
         <div className="signup--background">
             <form className="signup--form" onSubmit={handleSubmit}>
                 <h1 className="form--header">Create Account</h1>
                 <label htmlFor="first" className="form--label">First Name</label>
-                <input 
+                <input
                     type="text"
                     id="first"
                     name="first"
@@ -83,7 +83,7 @@ export default function Signup(props) {
                     onChange={handleChange}
                 />
                 <label htmlFor="last" className="form--label">Last Name</label>
-                <input 
+                <input
                     type="text"
                     id="last"
                     name="last"
@@ -92,7 +92,7 @@ export default function Signup(props) {
                     onChange={handleChange}
                 />
                 <label htmlFor="email" className="form--label">Email</label>
-                <input 
+                <input
                     type="text"
                     id="email"
                     name="email"
@@ -107,7 +107,7 @@ export default function Signup(props) {
                         <p>
                             &nbsp;Please enter a valid email
                         </p>
-                    </div> 
+                    </div>
                 }
                 <label htmlFor="password" className="form--label">Password</label>
                 <input 
@@ -119,7 +119,7 @@ export default function Signup(props) {
                     onChange={handleChange}
                 />
                 {
-                    showError && !isProperPassword && 
+                    showError && !isProperPassword &&
                     <div className="form--error">
                         <ErrorIcon fontSize="small"/>
                         <p>
@@ -130,8 +130,8 @@ export default function Signup(props) {
                 <button className="form--button">Create Account</button>
                 <div className="signup--links">
                     <p>Already a member?</p>
-                    <p 
-                        className="form--link" 
+                    <p
+                        className="form--link"
                         onClick={() => props.toggleLogin()}
                     >
                         Log in

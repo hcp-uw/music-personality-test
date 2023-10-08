@@ -36,7 +36,7 @@ function App() {
                 }}
             >
                 <Login toggleLogin={toggleLogin} isShown={showLogin}/>
-                <div 
+                <div
                     className="modal--backdrop"
                     style={isMounted ? mountedStyle : unmountedStyle}
                     onClick={() => {

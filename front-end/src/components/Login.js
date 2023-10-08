@@ -11,7 +11,7 @@ export default function Login(props) {
             auth_key:"ABC"
         }
     )
-    
+
     // State for checking to make sure that there is a proper email and long password
     const [isProperEmail, setProperEmail] = useState(false)
     const [isProperPassword, setProperPassword] = useState(false)
@@ -28,7 +28,7 @@ export default function Login(props) {
                 setProperEmail(false)
             }
         }, [formData.email])
-        
+
     // Updates state whenever password is changed
     useEffect(() => {
         if (formData.password.length >= 5) {
@@ -37,7 +37,7 @@ export default function Login(props) {
             setProperPassword(false)
         }
     }, [formData.password])
-    
+
     // Updates state each time a user changes text in a field
     function handleChange(event) {
         setFormData(prevFormData => {
@@ -45,7 +45,7 @@ export default function Login(props) {
             return (
                 {
                     ...prevFormData,
-                    [name]: value                    
+                    [name]: value
                 }
 
             )
@@ -57,9 +57,11 @@ export default function Login(props) {
         event.preventDefault()
         if (isProperEmail && isProperPassword) {
             setShowError(false);
-            axios.get("http://67.168.214.36:5000/login", JSON.stringify(formData, null, 2))
-            .then((res) => {
-                console.log(res);
+            console.log(formData);
+            axios.post("http://67.168.214.36:5000/login", JSON.stringify(formData, null, 2))
+            //axios.post("http://67.168.214.36:5000/login", formData)
+                .then((res) => {
+                    console.log(res);
             })
         } else {
             setShowError(true)
@@ -71,7 +73,7 @@ export default function Login(props) {
             <form className="login--form" onSubmit={handleSubmit}>
                 <h1 className="form--header">Welcome Back!</h1>
                 <label htmlFor="email" className="form--label">Email</label>
-                <input 
+                <input
                     type="text"
                     name="email"
                     id="email"
@@ -86,7 +88,7 @@ export default function Login(props) {
                         <p>
                             &nbsp;Please enter a valid email
                         </p>
-                    </div> 
+                    </div>
                 }
                 <label htmlFor="password" className="form--label">Password</label>
                 <input 
@@ -98,7 +100,7 @@ export default function Login(props) {
                     onChange={handleChange}
                 />
                 {
-                    showError && !isProperPassword && 
+                    showError && !isProperPassword &&
                     <div className="form--error">
                         <ErrorIcon fontSize="small"/>
                         <p>
@@ -108,12 +110,12 @@ export default function Login(props) {
                 }
                 <button className="form--button">Sign In</button>
                 <div className="login--links">
-                    <p 
+                    <p
                         onClick={() => {
-                            props.toggleLogin() 
+                            props.toggleLogin()
                             window.location.href = './signup'
                         }}
-                        className="form--link"        
+                        className="form--link"
                     >
                         Sign up here!
                     </p>
