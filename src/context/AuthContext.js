@@ -25,6 +25,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   const signOut = async () => {
+    window.location.href = "/";
     return auth.signOut();
   }
 

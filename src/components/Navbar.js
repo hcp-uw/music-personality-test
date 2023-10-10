@@ -48,7 +48,7 @@ export default function Navbar(props) {
             <img src={icon} alt="logo" className="nav--logo" />
             <div className="nav--tabs">
                 <p onClick={() => {window.location.href = "/"}}>Home Page</p>
-                <p onClick={handleDebug}>About Personality Types</p>
+                <p onClick={() => {window.location.href = "/about"}}>About Personality Types</p>
                 <p onClick={() => {window.location.href = "/questions"}}>Personality Test</p>
                 {currentUser ? (
                     <p onClick={() => {window.location.href = "/info"}}>My Personality</p>

@@ -37,7 +37,6 @@ export async function GetUser(uid) {
     const snapshot = await get(child(dataRef, key));
     const data = snapshot.val();
 
-    console.log(data);
     return data;
   } catch (err) {
     console.error(err);
