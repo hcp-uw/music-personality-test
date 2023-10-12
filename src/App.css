@@ -1,0 +1,468 @@
+/* Each DOM element's box size contains all aspects (content, padding, margin) */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  height: 90px;
+  padding: 10px;
+  align-items: center;
+  background-color: #876AC5;
+  box-shadow: 0px 5px 7.5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.nav--logo {
+  height: 90px;
+  margin-right: 0px;
+}
+
+.nav--tabs {
+  display: flex;
+  gap: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #FFF;
+  font-size: 1.1rem;
+  margin-right: auto;
+}
+
+.nav--tabs > p {
+  transition: 0.2s ease;
+  padding-bottom: 2px;
+  border-bottom: 2px solid rgba(0,0,0,0);
+}
+
+.nav--tabs > p:hover {
+  border-bottom-color: #fff;
+  cursor: pointer;
+}
+
+/* Login button's styling */
+.navbar button {
+  margin-left: 25px;
+  margin-right: 15px;
+  border-radius: 12px;
+  border-width: 0;
+  background-color: #FFF;
+  flex: auto;
+  min-width: 100px;
+  max-width: 150px;
+  height: 50px;
+  flex-shrink: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px;
+  transition: 0.2s ease-out;
+}
+
+.navbar button:hover {
+  background-color: #B5E48C;
+  color: #FFF;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.navbar img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.front--main {
+  display: flex;
+  justify-content: center;
+}
+
+/* Info card's styling at the top of the home page */
+/* Info card elements styling from lines 86-110 */
+.main--box {
+  margin-top: 30px;
+  display: flex;
+  width: 50vw;
+  min-width: 850px;
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background: linear-gradient(180deg, #FBC2EB 0%, #FCCB90 100%);
+  border-radius: 30px;
+}
+
+.box--text-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 0 50px;
+}
+
+.box--header {
+  text-align: center;
+  font-family:'Plus Jakarta Sans', sans-serif;
+}
+
+.box--text {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+}
+
+.box--arrow {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Login box, sign-up page, and children elements' styling from 113-234 */
+.login--background {
+  position: absolute;
+  width: 85vw;
+  max-width: 650px;
+  height: 85vh;
+  max-height: 700px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background: linear-gradient(138deg, #876AC5 0%, #FBC2EB 100%);
+  border-radius: 30px;
+}
+
+.login--form {
+  background: #fcfcfc;
+  height: 90%;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  padding: 15px 5%;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+  overflow-y: auto;
+}
+
+.login--form::webkit-scrollbar {
+  display: none;
+}
+
+.form--header {
+  align-self: center;
+  margin-bottom: 30px;
+  color: rgb(50, 50, 50);
+}
+
+.form--label {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: rgb(51, 51, 51);
+
+}
+
+.form--input {
+  border-radius: 7px;
+  border: 2px solid #a1a1a1;
+  border-width: 1px;
+  min-height: 45px;
+  height: 45px;
+  margin-bottom: 15px;
+  padding: 0px 10px;
+  font-size: 18px;
+  transition: 0.2s ease;
+  width: 100%;
+  color: rgb(51, 51, 51);
+  align-self: center;
+}
+
+.form--input:focus {
+  outline: none;
+  box-shadow: 0px 0px 8px rgb(179, 179, 179);
+}
+
+.form--button {
+  background: linear-gradient(90deg, #04CC00 0%, #04CC00 0.01%, rgba(94, 232, 92, 0.49) 50%, #0400CC 50.01%, rgba(74, 19, 152, 0.78) 76.56%, rgba(209, 54, 54, 0.35) 100%);
+  height: 45px;
+  border-radius: 22.5px;
+  align-self: center;
+  width: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px 0px;
+  border-width: 0;
+  transition: all 0.25s ease-out;
+  background-size: 205% auto;
+}
+
+.form--button:hover {
+  cursor: pointer;
+  background-position: right center;
+}
+
+.login--links {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+.form--link {
+  font-size: 1rem;
+  color: blue;
+  border-bottom: 1px solid rgb(0,0,255);
+  cursor: pointer;
+}
+
+.signup--background {
+  background: linear-gradient(222deg, #876AC5 0%, #FBC2EB 100%);
+  height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: none;
+  padding: 20px;
+}
+
+.signup--form {
+  background: #fcfcfc;
+  height: auto;
+  width: 85vw;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 50px;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  margin: auto 0;
+}
+
+.signup--links {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  font-size: 18px;
+  align-items: center;
+}
+
+.form--error {
+  margin-top: -20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(219, 0, 0);
+  display: flex;
+  align-items: center;
+}
+
+/* Darkened backdrop for login modal popup */
+.modal--backdrop {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background-color:rgba(0,0,0,0.3);
+}
+
+/* Animation keyframes to gradually display the modal backdrop on mounting */
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Button for the next set of questions or results page at the bottom after the questions */
+.next--button {
+  border-radius: 30px;
+  border-color: transparent;
+  background-color: #9789DA;
+  color : white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  width: 200px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+  margin-top: 20px;
+}
+
+.next--button:hover  {
+  background-color: #7b6bce;
+  cursor: pointer;
+}
+
+/* Styling for each singular question card */
+.question {
+  display: flex;
+  flex-direction: column;
+  min-width: 480px;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Styling for the div that contains all question cards */
+.questions--div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.questions--div > button {
+  margin: 40px 0;
+}
+
+/* question--buttons are the radio buttons for each question from disagree -> agree */
+.question--buttons {
+  margin-top: -15px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.question--buttons > input[type='radio'] {
+  display: none;
+}
+
+.question--buttons > input[type='radio'] + label {
+  margin: 15px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  background-color: white;
+  transition: .2s ease;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.question--buttons > h3 {
+  margin: 5px;
+}
+
+
+.center {
+  margin: auto;
+  width: 50%;
+}
+
+.q--neutral + label {
+  width:25px;
+  height: 25px;
+  min-width: 25px;
+  min-height: 25px;
+}
+
+.q--slight-pos + label,
+.q--slight-neg + label {
+  width:30px;
+  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.q--strong-pos + label,
+.q--strong-neg + label {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.results--div {
+  position: absolute;
+  top: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Make sure the button is grayed out*/
+.disable-button {
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Make the "Strongly Agree" and "Strongly Agree" the same color  */
+.positive {
+  color: #33a474;
+}
+
+.negative {
+  color: #88619a
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--slight-neg + label,
+.question--buttons > input.q--strong-neg + label {
+  border-color: #88619a;
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--slight-pos + label,
+.question--buttons > input.q--strong-pos + label {
+  border-color: #33a474;
+}
+
+/* Make the border of the buttons (input fields) the same color  */
+.question--buttons > input.q--neutral + label {
+  border-color: #9b9faa;
+}
+
+/* Makes the negative buttons purple (input fields) on checked and hover  */
+input.q--strong-neg:checked + label,
+input.q--strong-neg:hover + label,
+input.q--slight-neg:checked + label,
+input.q--slight-neg:hover + label {
+  background-color:#88619a;
+}
+
+/* Makes the center buttons (input fields) gray on checked and hover  */
+input.q--neutral:checked + label,
+input.q--neutral:hover + label {
+  background-color: #9b9faa;
+}
+
+/* Makes the positive buttons (input fields) green on checked and hover  */
+input.q--slight-pos:checked + label,
+input.q--slight-pos:hover + label,
+input.q--strong-pos:checked + label,
+input.q--strong-pos:hover + label {
+  background-color: #33a474;
+}
+
+
