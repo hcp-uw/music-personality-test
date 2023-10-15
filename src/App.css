@@ -76,6 +76,11 @@ body {
 .front--main {
   display: flex;
   justify-content: center;
+  /* flex-direction: column; */
+}
+
+.color {
+  background-image: linear-gradient(to bottom, #876ac5, #ffffff);
 }
 
 /* Info card's styling at the top of the home page */
@@ -465,4 +470,72 @@ input.q--strong-pos:hover + label {
   background-color: #33a474;
 }
 
+.img-center {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
 
+#result-container {
+ margin-top:100px;
+ margin-left:100px;
+}
+
+#top-elements {
+  display: flex;
+  flex-direction: row;
+}
+
+#again-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#img-container {
+  margin-left: 10%;
+  margin-right: 30%;
+}
+
+#text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content:start;
+  align-items: center;
+}
+
+#background {
+  background-color: #d1c6e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+}
+
+#background > img {
+  width: 70%;
+}
+
+#result-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#img-container-text {
+  text-align: center;
+}
+
+#about-text {
+  background-color: #876ac5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
+  color: #ffffff;
+}
