@@ -18,6 +18,10 @@ export default function Results() {
 
     }
 
+    const DEBUG = () => {
+        console.log("HERE");
+    }
+
     useEffect(() => {
         handleGetUser();
       }, []);
@@ -47,8 +51,8 @@ export default function Results() {
                 </div>
             </div>
             <div id="bottom-elements">
-                <div id="again-button">
-                    <button>Take another test here!</button>
+                <div id="again-button-container">
+                    <button id="again-button" onClick={DEBUG}>Take another test here!</button>
                 </div>
             </div>
         </div>
