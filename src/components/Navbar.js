@@ -58,10 +58,10 @@ export default function Navbar(props) {
             {currentUser ? (
                 <div style={{display: "flex", alignItems: "center"}}>
 
-                    <p style={{padding: "10px", color: "white"}}> {currentUser.displayName}</p>
+                    <p className="user--name"> {currentUser.displayName}</p>
 
                     <span>
-                        <img src={currentUser.photoURL} alt={"user id"}></img>
+                        <img className="user--photo" src={currentUser.photoURL} alt={"user id"}></img>
                     </span>
                     <span>
                         <button onClick={handleSignOut}>Logout</button>

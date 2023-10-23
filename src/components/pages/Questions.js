@@ -28,10 +28,10 @@ export default function Questions() {
 
         let output = [...data];
 
-    for (let i = output.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [output[i], output[j]] = [output[j], output[i]];
-    }
+        for (let i = output.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [output[i], output[j]] = [output[j], output[i]];
+        }
 
         setQuestions(output)
         // axios.get("http://67.168.214.36:5000/questions")
@@ -55,11 +55,11 @@ export default function Questions() {
 
     // Shifts the questions rendered to the next 6
     function nextPageData(event) {
-        console.log(results);
-        setSelected(true);
-        setSelectedOptions(Array(6).fill(null));
         event.preventDefault()
+        setSelected(true)
+        setSelectedOptions(Array(6).fill(null))
         setDataSet(prevDataSet => prevDataSet + 6)
+        window.scrollTo({top: 0, behavior: 'smooth'})
     }
 
     // Redirects the user to the results page
@@ -144,7 +144,7 @@ export default function Questions() {
         const updatedOptions = [...selectedOptions];
         updatedOptions[index] = option;
         setSelectedOptions(updatedOptions);
-    };
+    }
 
     // Renders the set of questions with their answers saved from state
     const renderQuestions = questions.slice(dataSet, dataSet + 6).map((item, index) => {

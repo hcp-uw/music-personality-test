@@ -1,14 +1,15 @@
-import './App.css';
-import React from 'react';
+import './App.css'
+import React from 'react'
 import Navbar from './components/Navbar'
 
 import Home from './components/pages/Home'
 import Results from './components/pages/Results'
 import Questions from './components/pages/Questions'
 import Info from './components/pages/Info'
+import About from './components/pages/About'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthContextProvider } from './context/AuthContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { AuthContextProvider } from './context/AuthContext'
 
 
 
@@ -86,6 +87,7 @@ function App() {
                     <Route path='/questions' element={<Questions/>} />
                     <Route path='/results' element={<Results/>} />
                     <Route path='/info' element={<Info/>} />
+                    <Route path='/about' element={<About/>} />
                 </Routes>
             </Router>
         </AuthContextProvider>
