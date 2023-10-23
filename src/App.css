@@ -3,10 +3,22 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
+html {
+  height: 100%;
 }
 
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: #dddfe2;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .navbar {
   display: flex;
   height: 90px;
@@ -80,7 +92,7 @@ body {
 }
 
 .color {
-  background-image: linear-gradient(to bottom, #876ac5, #ffffff);
+  /* background-image: linear-gradient(to bottom, #876ac5, #ffffff); */
 }
 
 /* Info card's styling at the top of the home page */
@@ -478,6 +490,7 @@ input.q--strong-pos:hover + label {
 }
 
 #result-container {
+ background-color: #dddfe2;
  margin-top:100px;
  margin-left:100px;
 }
@@ -513,6 +526,7 @@ input.q--strong-pos:hover + label {
   width: 300px;
   height: 300px;
   border-radius: 15px;
+  border: 5px solid black;
 }
 
 #background > img {
@@ -538,4 +552,39 @@ input.q--strong-pos:hover + label {
   padding-left: 80px;
   padding-right: 80px;
   color: #ffffff;
+}
+
+#test {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: #f6f6f7;
+  width: 50vw;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin-top:100px;
+  padding-bottom: 200px;
+  box-shadow: 10px 10px 5px lightblue;
+}
+
+
+#result-p {
+  font-size: 20px;
+  color: #51596a;
+  margin-bottom: 0;
+}
+
+#result-h3 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#result-h4 {
+  font-size: 30px;
+  margin: 0;
+}
+
+#result-button {
+  background-color: #0400CC;
 }
