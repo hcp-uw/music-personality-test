@@ -64,7 +64,10 @@ export default function Results() {
             <h4 id="result-h4">ESTJ</h4>
             <img src={require(`./../../images/planets/${img_src}.svg`)} alt="fd"></img>
             <p id="result-p">Consuls are very caring, social, community-minded people who are always eager to help.</p>
-            <button id="result-button">Next</button>
+            <hr/>
+            <div id="button-container">
+                <button id="result-button">Finish</button>
+            </div>
 
         </div>
         //     <div id="top-elements">
