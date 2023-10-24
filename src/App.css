@@ -587,8 +587,9 @@ input.q--strong-pos:hover + label {
   margin-top:40px;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
-  padding-bottom: 100px;
+  height: 100%;
+  margin-top:100px;
+  padding-bottom: 200px;
   box-shadow: 10px 10px 5px lightblue;
 }
 
@@ -610,5 +611,35 @@ input.q--strong-pos:hover + label {
 }
 
 #result-button {
-  background-color: #0400CC;
+  background-color: lightblue;
+  border-color: transparent;
+  flex: auto;
+  min-width: 100px;
+  max-width: 150px;
+  border-radius: 12px;
+  height: 50px;
+  flex-shrink: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px;
+  transition: 0.2s ease-out;
+}
+
+#result-button:hover {
+  background-color: #B5E48C;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+
+hr {
+  color: #ffffff;
+  height: 2px;
+  width: 50%;
+  margin: 20px auto;
+}
+
+#button-container {
+  display: flex;
+  justify-content: flex-end;
 }
