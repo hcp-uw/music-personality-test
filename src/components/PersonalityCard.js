@@ -39,7 +39,7 @@ export default function PersonalityCard(props) {
         borderColor: "black",
         border: "2px solid rgba(0, 0, 0, 0.60)",
         background: "rgba(217, 217, 217, 0.30)",
-        width: "820px",
+        width: "825px",
         padding: "0 20px",
         lineHeight: "1",
     }
@@ -52,10 +52,10 @@ export default function PersonalityCard(props) {
         borderColor: "black",
         border: "2px solid rgba(0, 0, 0, 0.60)",
         background: "rgba(217, 217, 217, 0.30)",
-        width: "820px",
+        width: "825px",
         padding: "0 20px",
         position: "relative",
-        right: "420px",
+        right: "425px",
         lineHeight: "1",
     }
 
@@ -102,7 +102,10 @@ export default function PersonalityCard(props) {
                 onClick={() => props.toggleDescState(props.id)}
                 >
                     <img src={eval(`Planet${props.type}`)} alt={`Planet${props.type}`} className="planet--image"></img>
-                    <h1>{props.type}</h1>
+                    <div className="personality--type--div">
+                        <h1>{props.type}</h1>
+                        <h1 className="personality--type--shadow">{props.type}</h1>
+                    </div>
             </div>
             <div 
                 className="planet--desc--div"

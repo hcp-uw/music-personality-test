@@ -69,8 +69,8 @@ body {
 }
 
 .user--photo {
-  max-width: 70%;
-  max-height: 70%;
+  height: 50px;
+  width: 50px;
   border-radius: 10px;
 }
 
@@ -83,6 +83,7 @@ body {
 .front--main {
   display: flex;
   justify-content: center;
+  background: linear-gradient(180deg, #8264C1 0%, #876AC5 21.83%, rgba(135, 106, 197, 0.00) 100%);
 }
 
 /* Info card's styling at the top of the home page */
@@ -135,6 +136,7 @@ body {
   align-self: start;
   justify-content: center;
   justify-self: flex-start;
+  background: linear-gradient(180deg, #8264C1 0%, #876AC5 21.83%, rgba(135, 106, 197, 0.00) 100%);
 }
 
 .personality--container {
@@ -151,6 +153,18 @@ body {
   margin-top: 25px;
 }
 
+.personality--type--div {
+  position: relative;
+}
+
+.personality--type--shadow {
+  transform: rotateX(180deg);
+  filter: blur(3.5px);
+  position: absolute;
+  top: 15px;
+  z-index: 0;
+}
+
 @keyframes pCardInAnimation {
   0% {
     height: 300px;
@@ -159,14 +173,14 @@ body {
   }
   100% {
     border-radius: 17px 17px 0px 0px;
-    border-bottom: 0px solid white;
+    border-bottom: 0px solid transparent;
     height: 325px;
   }
 }
 
 @keyframes pCardOutAnimation {
   0% {
-    border-bottom: 0px solid white;
+    border-bottom: 0px solid transparent;
     border-radius: 17px 17px 0px 0px;
     height: 325px;
   }
@@ -182,7 +196,7 @@ body {
   padding: 0 20px;
   border: 2px solid rgba(0, 0, 0, 0.60);
   background: rgba(217, 217, 217, 0.30);
-  width: 820px;
+  width: 825px;
   padding: 0 20px;
 }
 
@@ -247,7 +261,7 @@ body {
     border-radius: 17px 0px 17px 17px;
     border: 2px solid rgba(0, 0, 0, 0.60);
     position: relative;
-    right: 420px;
+    right: 425px;
   }
   100% {
     height: 0;
@@ -256,7 +270,7 @@ body {
     border-radius: 17px 0px 17px 17px;
     border-width: 0;
     position: relative;
-    right: 420px;
+    right: 425px;
   }
 }
 
@@ -550,8 +564,10 @@ body {
 }
 
 .results--div {
-  position: absolute;
-  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: 'Poppins', sans-serif;
 }
 
