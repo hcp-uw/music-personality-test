@@ -29,10 +29,8 @@ export default function About() {
     })
 
     return (
-        <div>
-            <div className="card--grid">
-                {cardElements}
-            </div>
+        <div className="card--grid">
+            {cardElements}
         </div>
     )
 }
