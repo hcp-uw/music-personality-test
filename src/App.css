@@ -578,16 +578,17 @@ input.q--strong-pos:hover + label {
 }
 
 #test {
-  border-radius: 10px;
   display: flex;
+  border-radius: 10px;
   justify-content: center;
   background-color: #f6f6f7;
-  width: 50vw;
+  width: 700px;
+  height: 500px;
+  margin-top:40px;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  margin-top:100px;
-  padding-bottom: 200px;
+  padding: 50px;
+  padding-bottom: 100px;
   box-shadow: 10px 10px 5px lightblue;
 }
 
