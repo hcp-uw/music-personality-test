@@ -3,10 +3,12 @@ import {useState, useEffect } from "react";
 
 
 import tempImg from "../../images/planets/ELNC.svg";
+import  { useAuth } from "./../../context/AuthContext"
+
 export default function Results() {
 
     const [userInfo, setUserInfo] = useState(null);
-
+    const { signIn, currentUser, signOut } = useAuth();
     const handleGetUser = async () => {
         try {
         const user = await GetUser("temp");
@@ -20,6 +22,10 @@ export default function Results() {
 
     const DEBUG = () => {
         console.log("HERE");
+    }
+
+    const handleClick = () => {
+        window.location.href = "/"
     }
 
     useEffect(() => {
@@ -64,9 +70,14 @@ export default function Results() {
             <h4 id="result-h4">ESTJ</h4>
             <img src={require(`./../../images/planets/${img_src}.svg`)} alt="fd"></img>
             <p id="result-p">Consuls are very caring, social, community-minded people who are always eager to help.</p>
+            {!currentUser ? (
+                <p id="login-check">Log in now to save your results!</p>
+            ): (
+                <div></div>
+            )}
             <hr/>
             <div id="button-container">
-                <button id="result-button">Finish</button>
+                <button id="result-button" onClick={handleClick}>Finish</button>
             </div>
 
         </div>

@@ -169,17 +169,10 @@ export default function Questions() {
         )
     })
 
-    const debug = true;
     return (
         <div className="questions--div">
             {renderQuestions}
-            {debug ? (
-                <button className={selected ? 'next--button disable-button': 'next--button'} onClick={resultsPage}>
-                Finish&nbsp;<EastIcon />
-            </button>
-            ) : (
-                <div></div>
-            )}
+
             {dataSet < 30 ? (
                 <button className={selected ? 'next--button disable-button':'next--button'} onClick={nextPageData}>
                     Next&nbsp;<EastIcon />
