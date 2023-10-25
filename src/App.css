@@ -24,11 +24,12 @@ body {
   height: 90px;
   padding: 10px;
   align-items: center;
-  background-color: #876AC5;
+  background-color: #8264C1;
   box-shadow: 0px 5px 7.5px rgba(0, 0, 0, 0.1);
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .nav--logo {
@@ -39,7 +40,6 @@ body {
 .nav--tabs {
   display: flex;
   gap: 20px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
   color: #FFF;
   font-size: 1.1rem;
   margin-right: auto;
@@ -58,7 +58,7 @@ body {
 
 /* Login button's styling */
 .navbar button {
-  margin-left: 25px;
+  margin-left: 15px;
   margin-right: 15px;
   border-radius: 12px;
   border-width: 0;
@@ -69,7 +69,7 @@ body {
   height: 50px;
   flex-shrink: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 21px;
+  font-size: 1.2rem;
   transition: 0.2s ease-out;
 }
 
@@ -80,19 +80,23 @@ body {
   cursor: pointer;
 }
 
-.navbar img {
-  max-width: 80%;
-  max-height: 80%;
+.user--photo {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+}
+
+.user--name {
+  padding: 10px;
+  color: white;
+  font-size: 1.1rem
 }
 
 .front--main {
   display: flex;
   justify-content: center;
+  background: linear-gradient(180deg, #8264C1 0%, #876AC5 21.83%, rgba(135, 106, 197, 0.00) 100%);
   /* flex-direction: column; */
-}
-
-.color {
-  /* background-image: linear-gradient(to bottom, #876ac5, #ffffff); */
 }
 
 /* Info card's styling at the top of the home page */
@@ -135,6 +139,158 @@ body {
   width: 20%;
   display: flex;
   justify-content: center;
+}
+
+.card--grid {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-template-rows: 300px, 300px, 300px, 300px, 300px, 300px, 300px, 300px;
+  background: white;
+  column-gap: 25px;
+  align-self: start;
+  justify-content: center;
+  justify-self: flex-start;
+  background: linear-gradient(180deg, #8264C1 0%, #876AC5 21.83%, rgba(135, 106, 197, 0.00) 100%);
+}
+
+.personality--container {
+  display: flex;
+  width: 400px;
+  border: 2px solid rgba(0, 0, 0, 0.60);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.60);
+  background: rgba(217, 217, 217, 0.30);
+  align-items: end;
+  justify-content: center;
+  padding-bottom: 30px;
+  gap: 20px;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 25px;
+}
+
+.personality--type--div {
+  position: relative;
+}
+
+.personality--type--shadow {
+  transform: rotateX(180deg);
+  filter: blur(3.5px);
+  position: absolute;
+  top: 15px;
+  z-index: 0;
+}
+
+@keyframes pCardInAnimation {
+  0% {
+    height: 300px;
+    border-radius: 17px;
+    border: 2px solid rgba(0, 0, 0, 0.60);
+  }
+  100% {
+    border-radius: 17px 17px 0px 0px;
+    border-bottom: 0px solid transparent;
+    height: 325px;
+  }
+}
+
+@keyframes pCardOutAnimation {
+  0% {
+    border-bottom: 0px solid transparent;
+    border-radius: 17px 17px 0px 0px;
+    height: 325px;
+  }
+  100% {
+    height: 300px;
+    border-radius: 17px;
+    border-bottom: 2.2px solid rgba(0, 0, 0, 0.60);
+  }
+}
+
+.planet--desc--div {
+  height: 120px;
+  padding: 0 20px;
+  border: 2px solid rgba(0, 0, 0, 0.60);
+  background: rgba(217, 217, 217, 0.30);
+  width: 825px;
+  padding: 0 20px;
+}
+
+@keyframes planetDescLeftInAnimation {
+  0% {
+    height: 0;
+    line-height: 0;
+    color: transparent;
+    border-color: transparent;
+    border-radius: 0px 17px 17px 17px;
+  }
+  100% {
+    height: 120px;
+    line-height: 1;
+    color: black;
+    border-color: black;
+    border-radius: 0px 17px 17px 17px;
+    border: 2px solid rgba(0, 0, 0, 0.60);
+  }
+}
+
+@keyframes planetDescLeftOutAnimation {
+  0% {
+    height: 120px;
+    color: black;
+    border-color: black;
+    border-radius: 0px 17px 17px 17px;
+    border: 2px solid rgba(0, 0, 0, 0.60);
+  }
+  100% {
+    height: 0;
+    color: transparent;
+    border-color: transparent;
+    border-radius: 0px 17px 17px 17px;
+    border-width: 0;
+  }
+}
+
+@keyframes planetDescRightInAnimation {
+  0% {
+    height: 0;
+    line-height: 0;
+    color: transparent;
+    border-color: transparent;
+    border-radius: 17px 0px 17px 17px;
+  }
+  100% {
+    height: 120px;
+    line-height: 1;
+    color: black;
+    border-color: black;
+    border-radius: 17px 0px 17px 17px;
+    border: 2px solid rgba(0, 0, 0, 0.60);
+  }
+}
+
+@keyframes planetDescRightOutAnimation {
+  0% {
+    height: 120px;
+    color: black;
+    border-color: black;
+    border-radius: 17px 0px 17px 17px;
+    border: 2px solid rgba(0, 0, 0, 0.60);
+    position: relative;
+    right: 425px;
+  }
+  100% {
+    height: 0;
+    color: transparent;
+    border-color: transparent;
+    border-radius: 17px 0px 17px 17px;
+    border-width: 0;
+    position: relative;
+    right: 425px;
+  }
+}
+
+.planet--image {
+  width: 200px;
+  height: 200px;
 }
 
 /* Login box, sign-up page, and children elements' styling from 113-234 */
@@ -422,8 +578,10 @@ body {
 }
 
 .results--div {
-  position: absolute;
-  top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: 'Poppins', sans-serif;
 }
 

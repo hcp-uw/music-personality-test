@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function Question(props) {
 
@@ -26,7 +26,7 @@ export default function Question(props) {
                     id={getId(0)}
                     type="radio"
                     className="q--strong-neg"
-                    onClick={()=> {
+                    onClick={() => {
                         props.addResult(props.id, getRadioNum(0));
                         props.updateSelectedOptions(0);
                         handleLableClick(0);
@@ -41,7 +41,7 @@ export default function Question(props) {
                     id={getId(1)}
                     type="radio"
                     className="q--slight-neg"
-                    onClick={()=> {
+                    onClick={() => {
                         props.addResult(props.id, getRadioNum(1));
                         props.updateSelectedOptions(1);
                         handleLableClick(1);
@@ -55,7 +55,7 @@ export default function Question(props) {
                     id={getId(2)}
                     type="radio"
                     className="q--neutral"
-                    onClick={()=> {
+                    onClick={() => {
                         props.addResult(props.id, getRadioNum(2));
                         props.updateSelectedOptions(3);
                         handleLableClick(2);
@@ -69,7 +69,7 @@ export default function Question(props) {
                     id={getId(3)}
                     type="radio"
                     className="q--slight-pos"
-                    onClick={()=> {
+                    onClick={() => {
                         props.addResult(props.id, getRadioNum(3));
                         props.updateSelectedOptions(4);
                         handleLableClick(3);
