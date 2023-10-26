@@ -7,6 +7,7 @@ import Results from './components/pages/Results'
 import Questions from './components/pages/Questions'
 import Info from './components/pages/Info'
 import About from './components/pages/About'
+import Footer from './components/Footer'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext'
@@ -89,6 +90,7 @@ function App() {
                     <Route path='/info' element={<Info/>} />
                     <Route path='/about' element={<About/>} />
                 </Routes>
+                <Footer/>
             </Router>
         </AuthContextProvider>
     )
