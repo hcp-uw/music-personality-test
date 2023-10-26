@@ -95,7 +95,7 @@ export default function Question(props) {
                 <label htmlFor={getId(4)}></label>
                 <h3 className="positive">Strongly Agree</h3>
             </div>
-            <hr size="2" color="#777C97" width="100%"/>
+            <hr size="2" color="#777C97" style={{width: "100%"}}/>
         </div>
     )
 }

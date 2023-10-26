@@ -2,7 +2,7 @@ import { GetUser } from "./../../backend/api/database";
 import {useState, useEffect } from "react";
 
 
-import tempImg from "../../images/planets/ELNC.svg";
+import tempImg from "../../images/planets/PlanetENLC.svg";
 import  { useAuth } from "./../../context/AuthContext"
 
 export default function Results() {
