@@ -6,7 +6,7 @@ import Home from './components/pages/Home'
 import Results from './components/pages/Results'
 import Questions from './components/pages/Questions'
 import Info from './components/pages/Info'
-import About from './components/pages/About'
+import About from "./components/pages/About"
 import Footer from './components/Footer'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
